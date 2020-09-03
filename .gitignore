@@ -1,0 +1,16 @@
+UserInterfaceState.xcuserstate
+ios/ReactNativeBase.xcworkspace/contents.xcworkspacedata
+ios/ReactNativeBase.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+node_modules
+yarn.lock
+yarn-error.log
+android/.gradle
+android/.idea
+android/app/build
+android/build
+gradle-wrapper.jar
+app.iml
+ReactNativeBase.iml
+local.properties
+ios/Pods
+ios/Podfile.lock
