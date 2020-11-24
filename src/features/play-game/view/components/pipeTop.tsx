@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image } from 'react-native';
+import FastImage from 'react-native-fast-image';
 import R from 'res/R';
 
 export default class PipeTop extends Component<any> {
@@ -10,13 +10,13 @@ export default class PipeTop extends Component<any> {
     const y = this.props.body.position.y - height / 2;
 
     return (
-      <Image
+      <FastImage
         style={{
           position: 'absolute',
           left: x,
           top: y,
-          width: width,
-          height: height,
+          width,
+          height,
         }}
         resizeMode="stretch"
         source={R.images.pipeTop}

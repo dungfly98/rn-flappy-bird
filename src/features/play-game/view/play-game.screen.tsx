@@ -5,7 +5,8 @@
 
 import { Constants } from 'constans/constants';
 import * as React from 'react';
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import FastImage from 'react-native-fast-image';
 import { GameEngine } from 'react-native-game-engine';
 import R from 'res/R';
 import { PlayGameAdapter, PlayGameProps, PlayGameState } from '../model';
@@ -13,7 +14,9 @@ import Physics from './components/physics';
 
 export default class PlayGameScreen extends React.PureComponent<PlayGameProps, PlayGameState> {
   private adapter: PlayGameAdapter;
+
   public gameEngine: any;
+
   private entities: any;
 
   constructor(props: PlayGameProps) {
@@ -33,7 +36,11 @@ export default class PlayGameScreen extends React.PureComponent<PlayGameProps, P
     return (
       <View style={styles.container}>
         {/* Background Image */}
-        <Image source={R.images.background} style={styles.backgroundImage} resizeMode="stretch" />
+        <FastImage
+          source={R.images.background}
+          style={styles.backgroundImage}
+          resizeMode="stretch"
+        />
         <GameEngine
           ref={(ref) => {
             this.gameEngine = ref;

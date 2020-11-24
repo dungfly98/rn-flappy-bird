@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Animated } from 'react-native';
 import R from 'res/R';
 
-export default class Bird extends Component<any> {
+export default class Bird extends React.Component<any> {
   private animatedValue: any;
 
   constructor(props: any) {
@@ -17,13 +17,14 @@ export default class Bird extends Component<any> {
     const y = this.props.body.position.y - height / 2;
 
     this.animatedValue.setValue(this.props.body.velocity.y);
-    let rotation = this.animatedValue.interpolate({
+    const rotation = this.animatedValue.interpolate({
       inputRange: [-10, 0, 10, 20],
       outputRange: ['-20deg', '0deg', '15deg', '45deg'],
       extrapolate: 'clamp',
     });
 
-    let image = R.images['bird' + this.props.pose];
+    const image = R.images.bird1;
+    console.log('image: ', image);
 
     return (
       <Animated.Image
@@ -31,8 +32,8 @@ export default class Bird extends Component<any> {
           position: 'absolute',
           left: x,
           top: y,
-          width: width,
-          height: height,
+          width,
+          height,
           transform: [{ rotate: rotation }],
         }}
         resizeMode="stretch"
