@@ -23,8 +23,7 @@ export default class Bird extends React.Component<any> {
       extrapolate: 'clamp',
     });
 
-    const image = R.images.bird1;
-    console.log('image: ', image);
+    const image = R.images[`bird${this.props.pose}`];
 
     return (
       <Animated.Image
