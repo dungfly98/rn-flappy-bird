@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 /* 
   Created by dungnt at 09-03-2020 09:11:55
   Màn hình Bắt đầu chơi game
@@ -8,6 +9,7 @@ import * as React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { GameEngine } from 'react-native-game-engine';
+import Sound from 'react-native-sound';
 import R from 'res/R';
 import { PlayGameAdapter, PlayGameProps, PlayGameState } from '../model';
 import Physics from './components/physics';
@@ -22,7 +24,7 @@ export default class PlayGameScreen extends React.PureComponent<PlayGameProps, P
   constructor(props: PlayGameProps) {
     super(props);
     this.adapter = new PlayGameAdapter(this);
-
+    Sound.setCategory('Playback');
     this.state = {
       running: true,
       score: 0,
