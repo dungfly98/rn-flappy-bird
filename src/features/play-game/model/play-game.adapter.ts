@@ -40,6 +40,7 @@ export class PlayGameAdapter {
       { isStatic: true }
     );
 
+
     let floor2 = Matter.Bodies.rectangle(
       Constants.MAX_WIDTH + Constants.MAX_WIDTH / 2,
       Constants.MAX_HEIGHT - 25,
@@ -49,9 +50,9 @@ export class PlayGameAdapter {
     );
 
     Matter.World.add(world, [bird, floor1, floor2]);
+
     Matter.Events.on(engine, 'collisionStart', (event) => {
       var pairs = event.pairs;
-
       this.view.gameEngine.dispatch({ type: 'game-over' });
     });
 

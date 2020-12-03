@@ -17,12 +17,14 @@ export default class Bird extends React.Component<any> {
     const y = this.props.body.position.y - height / 2;
 
     this.animatedValue.setValue(this.props.body.velocity.y);
+
     const rotation = this.animatedValue.interpolate({
       inputRange: [-10, 0, 10, 20],
       outputRange: ['-20deg', '0deg', '15deg', '45deg'],
       extrapolate: 'clamp',
     });
 
+    // @ts-ignore
     const image = R.images[`bird${this.props.pose}`];
 
     return (
