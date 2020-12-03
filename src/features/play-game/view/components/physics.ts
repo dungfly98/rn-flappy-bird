@@ -115,7 +115,7 @@ const Physics = (entities, { touches, time, dispatch }) => {
         hadTouches = true;
         Matter.Body.setVelocity(bird, {
           x: bird.velocity.x,
-          y: -10,
+          y: -8,
         });
       }
     });

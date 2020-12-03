@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 /* 
   Created by dungnt at 09-03-2020 09:11:55
   Màn hình Bắt đầu chơi game
@@ -5,21 +6,25 @@
 
 import { Constants } from 'constans/constants';
 import * as React from 'react';
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import FastImage from 'react-native-fast-image';
 import { GameEngine } from 'react-native-game-engine';
+import Sound from 'react-native-sound';
 import R from 'res/R';
 import { PlayGameAdapter, PlayGameProps, PlayGameState } from '../model';
 import Physics from './components/physics';
 
 export default class PlayGameScreen extends React.PureComponent<PlayGameProps, PlayGameState> {
   private adapter: PlayGameAdapter;
+
   public gameEngine: any;
+
   private entities: any;
 
   constructor(props: PlayGameProps) {
     super(props);
     this.adapter = new PlayGameAdapter(this);
-
+    Sound.setCategory('Playback');
     this.state = {
       running: true,
       score: 0,
@@ -33,7 +38,11 @@ export default class PlayGameScreen extends React.PureComponent<PlayGameProps, P
     return (
       <View style={styles.container}>
         {/* Background Image */}
-        <Image source={R.images.background} style={styles.backgroundImage} resizeMode="stretch" />
+        <FastImage
+          source={R.images.background}
+          style={styles.backgroundImage}
+          resizeMode="stretch"
+        />
         <GameEngine
           ref={(ref) => {
             this.gameEngine = ref;

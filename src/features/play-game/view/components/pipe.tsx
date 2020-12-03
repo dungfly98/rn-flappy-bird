@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Image, View } from 'react-native';
+import { View } from 'react-native';
+import FastImage from 'react-native-fast-image';
 import R from 'res/R';
 
 export default class Pipe extends Component<any> {
@@ -27,7 +28,7 @@ export default class Pipe extends Component<any> {
       >
         {Array.apply(null, Array(pipeIterations)).map((el, idx) => {
           return (
-            <Image
+            <FastImage
               style={{ width: width, height: pipeHeight }}
               key={idx}
               resizeMode="stretch"

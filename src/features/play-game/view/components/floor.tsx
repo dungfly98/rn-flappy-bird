@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Image, View } from 'react-native';
+import { View } from 'react-native';
+import FastImage from 'react-native-fast-image';
 import R from 'res/R';
 
-export default class Floor extends Component {
+export default class Floor extends Component<any> {
   render() {
     const width = this.props.body.bounds.max.x - this.props.body.bounds.min.x;
     const height = this.props.body.bounds.max.y - this.props.body.bounds.min.y;
@@ -25,7 +26,7 @@ export default class Floor extends Component {
       >
         {Array.apply(null, Array(imageIterations)).map((el, idx) => {
           return (
-            <Image
+            <FastImage
               style={{ width: height, height: height }}
               key={idx}
               resizeMode="stretch"

@@ -1,0 +1,13 @@
+diff --git a/node_modules/react-native/Libraries/Image/RCTUIImageViewAnimated.m b/node_modules/react-native/Libraries/Image/RCTUIImageViewAnimated.m
+index af4becd..55bc2c8 100644
+--- a/node_modules/react-native/Libraries/Image/RCTUIImageViewAnimated.m
++++ b/node_modules/react-native/Libraries/Image/RCTUIImageViewAnimated.m
+@@ -275,6 +275,8 @@ - (void)displayLayer:(CALayer *)layer
+   if (_currentFrame) {
+     layer.contentsScale = self.animatedImageScale;
+     layer.contents = (__bridge id)_currentFrame.CGImage;
++  } else {
++    [super displayLayer:layer];
+   }
+ }
+ 
